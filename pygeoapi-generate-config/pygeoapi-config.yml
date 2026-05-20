@@ -1,0 +1,75 @@
+#####################
+#   ENV FOR LOCAL ##
+#####################
+server:
+    bind:
+        host: 0.0.0.0
+        port: 5000
+    url: http://localhost:5000
+    mimetype: application/json; charset=UTF-8
+    encoding: utf-8
+    gzip: false
+    languages:
+        - en-US
+    pretty_print: true
+    limits:
+        default_items: 20
+        max_items: 50
+    map:
+        url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    # CORS configuration
+    cors: true
+
+logging:
+    level: DEBUG
+
+metadata:
+    identification:
+        title: PygeoApi
+        description: API for accessing metadata
+        keywords:
+            - metadata
+
+        keywords_type: theme
+        terms_of_service: https://creativecommons.org/licenses/by/4.0/
+        url: http://localhost:5000
+    license:
+        name: CC-BY 4.0 license
+        url: https://creativecommons.org/licenses/by/4.0/
+    provider:
+        name: Ocean Database
+        url: http://localhost:5000
+    contact:
+        name: Herve Damlamian
+        position: Team Leader Ocean Prediction and Monitoring
+        address: Lotus Level 2, Nabua, Suva, Fiji
+        city: Suva
+        stateorprovince: Central
+        country: Fiji
+        email: herveda@spc.int
+        hours: Mo-Fr 08:00-16:30
+        instructions: Available during business hours
+        role: pointOfContact
+
+resources:
+    metadata:
+        type: collection
+        title: Metdata Catalogue
+        description: Metadata records from the local catalogue
+        keywords:
+            - oceanograhy         
+        extents:
+            spatial:
+                bbox: [-180,-90,180,90]
+                crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        providers:
+            - type: record
+              name: TinyDBCatalogue
+              data: pygeoapi-generate-config/data/metadata.json
+              id_field: id
+              time_field: metadata.created_at
+              title_field: title
+            #   properties: # optional: only return the following properties, in order
+            #     - stn_id
+            #     - value

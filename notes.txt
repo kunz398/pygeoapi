@@ -1,0 +1,16 @@
+## Validating the configuration
+
+pygeoapi config validate -c pygeoapi-generate-config/pygeoapi-config.yml
+
+PyGeoAPI:
+http://localhost:5000
+
+Frontend (React):
+http://localhost:3000
+
+Backend (FastAPI):
+http://localhost:8000
+
+Kibana (if included):
+http://localhost:5601
+

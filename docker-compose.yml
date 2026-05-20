@@ -1,0 +1,15 @@
+services:
+  pygeoapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pygeoapi-standalone
+    ports:
+      - "5000:5000"
+    environment:
+      PYGEOAPI_CONFIG: /app/pygeoapi-generate-config/pygeoapi-config.yml
+      PYGEOAPI_OPENAPI: /app/pygeoapi-generate-config/openapi.yml
+    volumes:
+      - ./pygeoapi-generate-config:/app/pygeoapi-generate-config
+      - ./logs:/app/logs
+    restart: unless-stopped
