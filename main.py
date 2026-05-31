@@ -14,6 +14,7 @@ if __name__ == '__main__':
     os.environ['PYGEOAPI_CONFIG'] = config_path
     os.environ['PYGEOAPI_OPENAPI'] = openapi_path
     os.environ.setdefault('PYGEOAPI_SERVER_URL', 'http://localhost:5000')
+    print(f"PYGEOAPI_SERVER_URL={os.environ.get('PYGEOAPI_SERVER_URL')}")
 
     # run with Flask and CORS
     from pygeoapi.flask_app import APP as app
