@@ -9,6 +9,7 @@ services:
     environment:
       PYGEOAPI_CONFIG: /app/pygeoapi-generate-config/pygeoapi-config.yml
       PYGEOAPI_OPENAPI: /app/pygeoapi-generate-config/openapi.yml
+      PYGEOAPI_SERVER_URL: ${PYGEOAPI_SERVER_URL:-http://localhost:5003}
     volumes:
       - ./pygeoapi-generate-config:/app/pygeoapi-generate-config
       - ./logs:/app/logs
